@@ -98,14 +98,9 @@ void game(int p1, int p2){
 
 		usleep(100);
 		if(check(p1)){
-			//sprintf(msg_send, "%d %d %d %d %d %d %d %d %d", board[p1][0], board[p1][1], board[p1][2], board[p1][3], board[p1][4], board[p1][5], board[p1][6], board[p1][7], board[p1][8]);
-			//send(connect_fd[p1], msg_send, MAXLINE, 0);
-
 			send(connect_fd[p1], game_win, strlen(game_win), 0);
-
-			//sprintf(msg_send, "%d %d %d %d %d %d %d %d %d", board[p2][0], board[p2][1], board[p2][2], board[p2][3], board[p2][4], board[p2][5], board[p2][6], board[p2][7], board[p2][8]);
-			//send(connect_fd[p2], msg_send, MAXLINE, 0);
 			send(connect_fd[p2], game_lose, strlen(game_lose), 0);
+			printf(" %s is win, %s is lose\n", user[p1], user[p2]);
 			break;
 		}
 
@@ -124,7 +119,6 @@ void game(int p1, int p2){
 		board[p1][move] = 1;
 		board[p2][move] = 0;
 		
-
 		usleep(100);
 		sprintf(msg_send, "%d %d %d %d %d %d %d %d %d", board[p1][0], board[p1][1], board[p1][2], board[p1][3], board[p1][4], board[p1][5], board[p1][6], board[p1][7], board[p1][8]);
 		send(connect_fd[p1], msg_send, strlen(msg_send), 0);
@@ -135,12 +129,9 @@ void game(int p1, int p2){
 
 		usleep(100);
 		if(check(p2)){
-			//send(connect_fd[p1], msg_send, MAXLINE, 0);
 			send(connect_fd[p1], game_lose, strlen(game_lose), 0);
-
-			//sprintf(msg_send, "%d %d %d %d %d %d %d %d %d", board[p2][0], board[p2][1], board[p2][2], board[p2][3], board[p2][4], board[p2][5], board[p2][6], board[p2][7], board[p2][8]);
-			//send(connect_fd[p2], msg_send, MAXLINE, 0);
 			send(connect_fd[p2], game_win, strlen(game_win), 0);
+			printf(" %s is win, %s is lose\n", user[p2], user[p1]);
 			break;
 		}
 		// send(connect_fd[p1], msg_send, strlen(msg_send), 0);
