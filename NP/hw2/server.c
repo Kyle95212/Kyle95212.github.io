@@ -360,7 +360,7 @@ int main(){
 			; // look for free connect_fd
 		connect_fd[i] = accept(listen_fd, (struct sockaddr *)&client_addr, &sock_len);
 
-		// create threads for client	argument = i to control connect_fd
+		// create threads for client argument = i to control connect_fd
 		printf("\nWaiting for user name...\n");
 		pthread_create(malloc(sizeof(pthread_t)), NULL, (void *)(&receive_send), (void *)i);
 	}
