@@ -317,21 +317,6 @@ void receive_send(int n){
 				game(n, target_idx);
 				printf("%s vs %s Game terminated ...\n", user_name, target_user);
 			}
-			// talk to everyone
-			// else
-			// {
-			// 	strcpy(msg_send, user_name);
-			// 	strcat(msg_send, ": ");
-			// 	strcat(msg_send, msg_rcv);
-
-			// 	for (i = 0; i < MAX_MEM; i++)
-			// 	{
-			// 		if (connect_fd[i] != -1 && strcmp(user_name, user[i]) != 0)
-			// 		{ // client exist
-			// 			send(connect_fd[i], msg_send, strlen(msg_send), 0);
-			// 		}
-			// 	}
-			// }
 		}
 	}
 }
@@ -353,8 +338,8 @@ int main(){
 	}
 
 	// Internet connection setting
-	server_addr.sin_family = AF_INET;		 // IPv4
-	server_addr.sin_port = htons(SERV_PORT); //port80
+	server_addr.sin_family = AF_INET;
+	server_addr.sin_port = htons(SERV_PORT);
 	server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
 	// notify by bind
