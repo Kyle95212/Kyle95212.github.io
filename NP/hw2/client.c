@@ -154,7 +154,7 @@ int main(int argc, char **argv)
     printf("Please enter your Username : ");
     scanf("%s", user_name);
     strcpy(cmd_line, user_name);
-    strcat(cmd_line, ">");
+    strcat(cmd_line, "> ");
 
 	bzero(&address, sizeof(address));
     server_addr = argv[1];
