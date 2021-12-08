@@ -233,10 +233,6 @@ void receive_send(int n){
 
 			else if(strncmp(msg_rcv, "/all", 4) == 0){
 				printf("\npublic message from %s ...\n", user_name);
-				// ask for target user's name
-				//send(connect_fd[n], msg1, strlen(msg1), 0);
-				//length = recv(connect_fd[n], target_user, MAXLINE, 0);
-				//target_user[length - 1] = '\0'; // '\n' to '\0'
 				sprintf(msg_send, ">> all : ");
 				send(connect_fd[n], msg_send, strlen(msg_send), 0);
 
